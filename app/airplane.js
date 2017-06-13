@@ -11,6 +11,16 @@ class Airplane {
     const matCockpit = new MeshPhongMaterial({
       color: Colors.red, shading: FlatShading
     })
+
+    geomCockpit.vertices[4].y -= 10
+    geomCockpit.vertices[4].z += 20
+    geomCockpit.vertices[5].y -= 10
+    geomCockpit.vertices[5].z -= 20
+    geomCockpit.vertices[6].y += 30
+    geomCockpit.vertices[6].z += 20
+    geomCockpit.vertices[7].y += 30
+    geomCockpit.vertices[7].z -= 20
+
     const cockpit = new Mesh(geomCockpit, matCockpit)
     cockpit.castShadow = true
     cockpit.receiveShadow = true

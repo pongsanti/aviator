@@ -1,7 +1,7 @@
 import {Scene, Fog, PerspectiveCamera, WebGLRenderer} from 'three'
 
-let HEIGHT = window.innerHeight
-let WIDTH = window.innerWidth
+export let HEIGHT = window.innerHeight
+export let WIDTH = window.innerWidth
 
 let camera
 let scene = new Scene()
