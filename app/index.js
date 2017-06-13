@@ -1,31 +1,20 @@
-import {Scene, PerspectiveCamera, WebGLRenderer,
-BoxGeometry, MeshBasicMaterial, Mesh, Geometry,
-Vector3,
-LineBasicMaterial, LineDashedMaterial, Line} from 'three'
+import createScene from './scene'
+import createLights from './light'
+import createSea from './sea'
+import createSky from './sky'
+import createPlane from './airplane'
 
-let scene = new Scene()
-let camera = new PerspectiveCamera(
-  45, window.innerWidth / window.innerHeight, 1, 500)
-camera.position.set(0, 0, 100)
-camera.lookAt(new Vector3(0, 0, 0))
+import loop from './loop'
 
-let renderer = new WebGLRenderer()
-renderer.setSize(window.innerWidth, window.innerHeight)
-document.body.appendChild(renderer.domElement)
+const init = () => {
+  createScene()
+  createLights()
 
-let material = new LineBasicMaterial({color: 0x0000ff})
-let geometry = new Geometry()
-geometry.vertices.push(new Vector3(-10, 0, 0))
-geometry.vertices.push(new Vector3(0, 10, 0))
-geometry.vertices.push(new Vector3(10, 0, 0))
+  createSea()
+  createSky()
+  createPlane()
 
-let line = new Line(geometry, material)
+  loop()
+}
 
-scene.add(line)
-renderer.render(scene, camera)
-// function render () {
-//   requestAnimationFrame(render)
-//   renderer.render(scene, camera)
-// }
-
-// render()
+window.addEventListener('load', init, false)
